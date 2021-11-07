@@ -15,7 +15,6 @@ typedef struct type
 	char *c;
 	int (*ptr_f)(va_list);
 } type;
-
 int _printf(const char *format, ...);
 int _prints(va_list);
 int _printc(va_list);
