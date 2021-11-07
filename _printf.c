@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 		 };
 
 	va_start(arglist, format);
-	while (format[i] != '\0')
+	while (format && format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
@@ -29,11 +29,11 @@ int _printf(const char *format, ...)
 				{
 					count += type[j].ptr_f(arglist);
 					i++;
-					break;
 				}
 				j++;
 			}
 			i++;
+			continue;
 		}
 		write(1, &format[i], 1);
 		count++;
