@@ -8,6 +8,12 @@ int _printd(va_list arglist)
 {
 	int c = va_arg(arglist, int), count = 0;
 
+	if (c < 0)
+	{
+		write(1, "-", 1);
+		c = -c;
+	}
+
 	count = write_integer(c, 1);
 	return (count);
 }
