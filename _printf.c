@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	type type[] = {
 		{"c", _printc},
 		{"s", _prints},
+		{"d", _printd},
 		{NULL, NULL}
 		 };
 
