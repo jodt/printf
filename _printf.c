@@ -15,28 +15,33 @@ int _printf(const char *format, ...)
 		{"s", _prints},
 		{"d", _printd},
 		{NULL, NULL}
-		 };
+	};
 
 	va_start(arglist, format);
 	while (format && format[i] != '\0')
 	{
-		if (format[i] == '%')
+		j = 0;
+		if (format[i] != '%')
 		{
-			j = 0;
-			while (type[j].c)
-			{
-				if (format[i + 1] == (type[j].c[0]))
-				{
-					count += type[j].ptr_f(arglist);
-					i++;
-				}
-				j++;
-			}
-			i++;
+			write(1, &format[i++], 1);
+			count++;
 			continue;
 		}
-		write(1, &format[i], 1);
-		count++;
+		while (type[j].c)
+		{
+			if (format[i] == '%' && format[i + 1] == type[j].c[0])
+			{
+				count += type[j].ptr_f(arglist);
+				i++;
+				break;
+			}
+			j++;
+		}
+		if (format[i] == '%' && format[i + 1] == '%')
+		{
+			write(1, &format[i + 1], 1);
+			i++;
+		}
 		i++;
 	}
 	va_end(arglist);
