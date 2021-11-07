@@ -1,0 +1,55 @@
+_PRINTF			Linux Programmer's Manual		_PRINTF
+
+NAME
+	_printf
+
+SYNOPSIS
+	#include "main.h"
+
+	int _printf(const char *format, ...);
+
+DESCRIPTION
+	The function _printf is our own version of the original printf function. 
+	It has the same behavior and it produces an output according to a format.
+	You pass a string as the first argument, and you can specify an
+	unlimited number of formats specifiers (more exemple below).
+	For each format specifier you specify, you have to put an argument who
+	's corresponding to the type of the format specifier.
+	For example, if you put 3 formats specifiers (one int, one char and one
+	string) you have to put 3 arguments after the formatted string of the
+	corresponding types.
+	
+	This function is not handling all the functionnality of the original one.
+	
+	For the moment it's handling: 
+	%s: string
+	%c: character
+	%d: Integer value as signed decimal integer
+	%i: Integer value with decimal, hexadecimal or octal type.
+
+EXAMPLES
+	_printf("Hello World\n");
+	Output: Hello World
+
+	_printf("Hello %s, you have %d years.\n", "Philippe", 27);
+	Output: Hello Philippe, you have 27 years.
+	
+	_printf("Your initials are %c%c.\n", 'P', 'W');
+	Output: Your initials are PW.
+	
+	_printf("Octal: %i, Decimal: %i, Hexadecimal: %i\n", 010, 8, 0x08);
+	Output: Octal: 8, Decimal: 8, Hexadecimal: 8
+
+SEE ALSO
+	printf(3), write(2)
+
+BUGS
+	The negative numbers for %d are not working yet, we're working to fix
+	it.
+
+AUTHOR
+	Joel DUMORTIER: https://github.com/jodt/
+	Philippe WILLOT: https://github.com/phwillot/
+
+COPYRIGHT
+	Made for Holberton School. Copyright - 2021
