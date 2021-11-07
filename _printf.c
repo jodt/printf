@@ -1,4 +1,5 @@
 #include"main.h"
+#include<stdio.h>
 /**
  * _printf - printf function
  * @format: string
@@ -8,19 +9,32 @@
 int _printf(const char *format, ...)
 {
 	va_list arglist;
-	int count = 0, i = 0;
+	int count = 0, i = 0, j;
+	type type[] = {
+		{"c", _printc},
+		{NULL, NULL}
+		 };
 
 	va_start(arglist, format);
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1] == 'c')
-		{	i++;
-			_printc(arglist);
+		if (format[i] == '%')
+		{
+			j = 0;
+			while (type[j].c)
+			{
+				if (format[i + 1] == (type[j].c[0]))
+				{
+					count += type[j].ptr_f(arglist);
+					i++;
+					break;
+				}
+				j++;
+			}
+			i++;
 		}
-		else
-		{	
-			write(1, &format[i], 1);
-		}
+		write(1, &format[i], 1);
+		count++;
 		i++;
 	}
 	va_end(arglist);
