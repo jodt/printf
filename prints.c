@@ -19,6 +19,5 @@ int _prints(va_list arg)
 		i++;
 	}
 
-	write(1, &str[i], 1);
 	return (i);
 }
