@@ -19,5 +19,6 @@ int _printf(const char *format, ...);
 int _prints(va_list);
 int _printc(va_list);
 int _printd(va_list);
+int _printb(va_list);
 int  write_integer(int, int);
 #endif /* _MAIN_H_ */
