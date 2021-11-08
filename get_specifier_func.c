@@ -20,6 +20,8 @@ int (*get_specifier_func(char c))(va_list)
 		{'b', _printb},
 		{'u', _printu},
 		{'o', _printo},
+		{'x', _printx},
+		{'X', _printX},
 	};
 
 	i = 0;
