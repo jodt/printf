@@ -25,7 +25,7 @@ int  write_uninteger(unsigned int, int);
 int _printu(va_list);
 int _printb(va_list);
 int _printo(va_list);
-int write_octal(int, int);
+int write_octal(int);
 int (*get_specifier_func(char))(va_list);
 int write_x(int);
 int _printx(va_list);
