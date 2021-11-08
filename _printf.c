@@ -10,15 +10,6 @@ int _printf(const char *format, ...)
 {
 	va_list arglist;
 	int count = 0, i = 0, j;
-	type type[] = {
-		{"c", _printc},
-		{"s", _prints},
-		{"d", _printd},
-		{"i", _printd},
-		{"b", _printb},
-		{"u", _printu},
-		{NULL, NULL}
-	};
 
 	va_start(arglist, format);
 	while (format && format[i] != '\0')
@@ -30,16 +21,12 @@ int _printf(const char *format, ...)
 			count++;
 			continue;
 		}
-		while (type[j].c)
+		if (format[i] == '%' && get_specifier_func(format[i + 1]))
 		{
-			if (format[i] == '%' && format[i + 1] == type[j].c[0])
-			{
-				count += type[j].ptr_f(arglist);
-				i++;
-				break;
-			}
-			j++;
+			count += get_specifier_func(format[i + 1])(arglist);
+			i++;
 		}
+			j++;
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
 			write(1, &format[i + 1], 1);
