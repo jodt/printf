@@ -12,7 +12,7 @@
  */
 typedef struct type
 {
-	char *c;
+	char c;
 	int (*ptr_f)(va_list);
 } type;
 int _printf(const char *format, ...);
@@ -26,4 +26,5 @@ int _printu(va_list);
 int _printb(va_list);
 int _printo(va_list);
 int write_octal(int, int);
+int (*get_specifier_func(char))(va_list);
 #endif /* _MAIN_H_ */
