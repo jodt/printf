@@ -27,4 +27,8 @@ int _printb(va_list);
 int _printo(va_list);
 int write_octal(int, int);
 int (*get_specifier_func(char))(va_list);
+int write_x(int);
+int _printx(va_list);
+int write_X(int);
+int _printX(va_list);
 #endif /* _MAIN_H_ */
