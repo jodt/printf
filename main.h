@@ -24,4 +24,6 @@ int  write_integer(int, int);
 int  write_uninteger(unsigned int, int);
 int _printu(va_list);
 int _printb(va_list);
+int _printo(va_list);
+int write_octal(int, int);
 #endif /* _MAIN_H_ */
