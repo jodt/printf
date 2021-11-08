@@ -19,6 +19,7 @@ int (*get_specifier_func(char c))(va_list)
 		{'i', _printd},
 		{'b', _printb},
 		{'u', _printu},
+		{'o', _printo},
 	};
 
 	i = 0;
