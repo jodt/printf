@@ -1,5 +1,4 @@
 #include"main.h"
-#include<stdio.h>
 /**
  * _printu - print an unsigned integer
  * @arglist : list of arguments
@@ -10,26 +9,27 @@ int _printu(va_list arglist)
 	unsigned int c, count = 0;
 
 	c = va_arg(arglist, unsigned int);
-	count = write_uninteger(c, 1);
+	count = write_uninteger(c);
 	return (count);
 }
 /**
  * write_uninteger - print an integer with write's function
- * @a: integer;
- * @count: count
+ * @number: integer;
  * Return: number of characters printed
  */
 
-int  write_uninteger(unsigned int a, int count)
+int  write_uninteger(unsigned int number)
 {
-	unsigned int c = a;
 	unsigned int temp;
+	static int characters_printed;
 
-	if (c / 10)
+	characters_printed = 0;
+	if (number / 10)
 	{
-		write_uninteger(c / 10, count++);
+		write_uninteger(number / 10);
 	}
-	temp = (c % 10) + '0';
+	temp = (number % 10) + '0';
+	characters_printed++;
 	write(1, &temp, sizeof(temp));
-	return (count);
+	return (characters_printed);
 }

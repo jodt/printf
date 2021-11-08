@@ -20,7 +20,7 @@ int _printc(va_list);
 int _printd(va_list);
 int _printb(va_list);
 int  write_integer(int);
-int  write_uninteger(unsigned int, int);
+int  write_uninteger(unsigned int);
 int _printu(va_list);
 int _printb(va_list);
 int _printo(va_list);
