@@ -7,7 +7,7 @@
  */
 int _printo(va_list arglist)
 {
-	int n = va_arg(arglist, int), count;
+	unsigned int n = va_arg(arglist, unsigned int), count;
 
 	count = write_octal(n);
 	return (count);
@@ -18,17 +18,17 @@ int _printo(va_list arglist)
  * @number: integer;
  * Return: number of characters printed
  */
-int write_octal(int number)
+int write_octal(unsigned int number)
 {
-	int nbr = number, temp;
+	int temp;
 	static int characters_printed;
 
 	characters_printed = 0;
-	if (nbr / 8)
+	if (number / 8)
 	{
-		write_octal(nbr / 8);
+		write_octal(number / 8);
 	}
-	temp = nbr % 8 + '0';
+	temp = number % 8 + '0';
 	characters_printed++;
 	write(1, &temp, sizeof(temp));
 	return (characters_printed);

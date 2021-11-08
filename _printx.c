@@ -7,7 +7,7 @@
  */
 int _printx(va_list arglist)
 {
-	int n = va_arg(arglist, int), count;
+	unsigned int n = va_arg(arglist, unsigned int), count;
 
 	count = write_x(n);
 	return (count);
@@ -18,7 +18,7 @@ int _printx(va_list arglist)
  *
  * Return: number of character
  */
-int write_x(int number)
+int write_x(unsigned int number)
 {
 	int arr [] = {'a', 'b', 'c', 'd', 'e', 'f'};
 	int  temp, index;
