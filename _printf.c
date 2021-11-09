@@ -12,6 +12,9 @@ int _printf(const char *format, ...)
 
 	va_start(arglist, format);
 
+	if (format[i] == '%' && get_specifier_func(format[i + 1]) == NULL)
+		return (-1);
+
 	if (format == NULL)
 		return (-1);
 
@@ -36,8 +39,6 @@ int _printf(const char *format, ...)
 			i++;
 		}
 
-		if (format[i] == '%' && get_specifier_func(format[i + 1]) == NULL)
-			return (-2);
 		i++;
 	}
 	va_end(arglist);
