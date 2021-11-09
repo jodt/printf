@@ -10,7 +10,9 @@ int _printf(const char *format, ...)
 	va_list arglist;
 	int count = 0, i = 0;
 
-	if (format == NULL || format[i] == '%')
+	if (format == NULL)
+		return (0);
+	if (format[i] == '%' && !get_specifier_func(format[i + 1]))
 		return (0);
 
 	va_start(arglist, format);
