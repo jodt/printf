@@ -11,12 +11,6 @@ int main(void)
 {
 	int len1;
 
-	len1 = _printf(NULL);
-	/* len2 = printf(NULL); */
-
-	_printf("%d\n", len1);
-	printf("%d\n", len1);
-
 	len1 = _printf("%");
 	_printf("%d\n", len1);
 	printf("%d\n", len1);

@@ -28,8 +28,6 @@ int _printf(const char *format, ...)
 			count += get_specifier_func(format[i + 1])(arglist);
 			i++;
 		}
-		else if (format[i] == '%' && get_specifier_func(format[i + 1]) == NULL)
-			return (-2);
 
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
@@ -37,6 +35,9 @@ int _printf(const char *format, ...)
 			count++;
 			i++;
 		}
+
+		if (format[i] == '%' && get_specifier_func(format[i + 1]) == NULL)
+			return (-2);
 		i++;
 	}
 	va_end(arglist);
