@@ -1,5 +1,5 @@
 #include "main.h"
-
+int write_b(unsigned int);
 /**
   * _printb - Handling the %b format specifier of _printf
   * @arg: Current argument
@@ -9,32 +9,30 @@
 
 int _printb(va_list arg)
 {
-	unsigned int c = va_arg(arg, unsigned int), n = 1, i = 0;
+	unsigned int n = va_arg(arg, unsigned int);
 
-	if (c == 0)
-	{
-		write(1, "0", 1);
-		return (1);
-	}
+	return (write_b(n));
+}
 
-	while (c >= n)
-	{
-		n *= 2;
-		i++;
-	}
-	n /= 2;
+/**
+  * write_b - print binary format
+  * @number: number to convert to binary
+  *
+  * Return: length of the number
+  */
 
-	while (n != 0)
-	{
-		if (c >= n)
-		{
-			write(1, "1", 1);
-			c -= n;
-		}
-		else
-			write(1, "0", 1);
-		n /= 2;
-	}
+int write_b(unsigned int number)
+{
+	int count = 0, temp;
 
-	return (i);
+	if (number / 2)
+		count = write_b(number / 2);
+
+	temp = number % 2;
+	temp += '0';
+
+	count++;
+	write(1, &temp, 1);
+
+	return (count);
 }

@@ -11,7 +11,7 @@ int main(void)
 {
 	int len1;
 
-	len1 = _printf("%b\n", 788953654);
+	len1 = _printf("%b\n", '0');
 
 	_printf("%d\n", len1);
 	printf("%d\n", len1);
