@@ -7,10 +7,9 @@
  */
 int _printX(va_list arglist)
 {
-	unsigned int n = va_arg(arglist, unsigned int), count;
+	unsigned int n = va_arg(arglist, unsigned int);
 
-	count = write_X(n);
-	return (count);
+	return (write_X(n));
 }
 /**
  * write_X - prints int to hexadecimal with write's function
@@ -21,26 +20,25 @@ int _printX(va_list arglist)
 int write_X(unsigned int number)
 {
 	int arr [] = {'A', 'B', 'C', 'D', 'E', 'F'};
-	int  temp, index;
-	static int characters_printed;
+	int  temp, index, characters_printed;
 
 	characters_printed = 0;
 	if (number / 16)
 	{
-		write_X(number / 16);
+		characters_printed = write_X(number / 16);
 	}
 	temp = number % 16;
 	if (temp > 9)
 	{
 		characters_printed++;
 		index = temp - 10;
-		write(1, &arr[index], sizeof(arr[index]));
+		write(1, &arr[index], 1);
 	}
 	else
 	{
 		characters_printed++;
 		temp += '0';
-		write(1, &temp, sizeof(temp));
+		write(1, &temp, 1);
 	}
 	return (characters_printed);
 }

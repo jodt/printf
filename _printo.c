@@ -7,10 +7,9 @@
  */
 int _printo(va_list arglist)
 {
-	unsigned int n = va_arg(arglist, unsigned int), count;
+	unsigned int n = va_arg(arglist, unsigned int);
 
-	count = write_octal(n);
-	return (count);
+	return (write_octal(n));
 }
 
 /**
@@ -20,16 +19,13 @@ int _printo(va_list arglist)
  */
 int write_octal(unsigned int number)
 {
-	int temp;
-	static int characters_printed;
+	int temp, characters_printed;
 
 	characters_printed = 0;
 	if (number / 8)
 	{
-		write_octal(number / 8);
+		characters_printed = write_octal(number / 8);
 	}
 	temp = number % 8 + '0';
-	characters_printed++;
-	write(1, &temp, sizeof(temp));
-	return (characters_printed);
+	return ((characters_printed + write(1, &temp, 1)));
 }
