@@ -9,15 +9,12 @@
  */
 int main(void)
 {
-	int len1, len2;
+	int len1;
 
-	_printf("%!\n");
-	_printf("%K\n");
+	len1 = _printf("%b\n", 788953654);
 
-	len1 = _printf("%!\n");
-	len2 = _printf("%K\n");
+	_printf("%d\n", len1);
+	printf("%d\n", len1);
 
-	_printf("%d\t%d\n", len1, len2);
-	printf("%d\t%d\n", len1, len2);
 	return (0);
 }

@@ -9,7 +9,7 @@
 
 int _printb(va_list arg)
 {
-	int c = va_arg(arg, int), n = 1, i = 0;
+	unsigned int c = va_arg(arg, unsigned int), n = 1, i = 0;
 
 	if (c == 0)
 	{
