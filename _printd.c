@@ -6,17 +6,9 @@
  */
 int _printd(va_list arglist)
 {
-	int c = va_arg(arglist, int), count = 0;
+	int c = va_arg(arglist, int);
 
-	if (c < 0)
-	{
-		write(1, "-", 1);
-		c = -c;
-		count++;
-	}
-
-	count += write_integer(c);
-	return (count);
+	return (write_integer(c));
 }
 /**
  * write_integer - print an integer with write's function
@@ -26,13 +18,20 @@ int _printd(va_list arglist)
 
 int  write_integer(int number)
 {
-	int temp, characters_printed;
+	int temp, characters_printed = 0;
+	unsigned int c1;
 
-	characters_printed = 0;
-	if (number / 10)
+	if (number < 0)
 	{
-		characters_printed = write_integer(number / 10);
+		number = -number;
+		write(1, "-", 1);
+		characters_printed++;
 	}
-	temp = (number % 10) + '0';
+	c1 = number;
+	if (c1 / 10)
+	{
+		characters_printed += write_integer(c1 / 10);
+	}
+	temp = (c1 % 10) + '0';
 	return (characters_printed += write(1, &temp, 1));
 }
