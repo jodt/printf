@@ -10,6 +10,9 @@ int _printf(const char *format, ...)
 	va_list arglist;
 	int count = 0, i = 0;
 
+	if (format == NULL || format[i] == '%')
+		return (0);
+
 	va_start(arglist, format);
 	while (format && format[i] != '\0')
 	{
@@ -24,6 +27,8 @@ int _printf(const char *format, ...)
 			count += get_specifier_func(format[i + 1])(arglist);
 			i++;
 		}
+		if (format[i] == '%' && !get_specifier_func(format[i + 1]))
+			return (0);
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
 			write(1, &format[i + 1], 1);
