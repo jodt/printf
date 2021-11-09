@@ -15,6 +15,9 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 
+	if (format[i] == '%' && get_specifier_func(format[i + 1]) == NULL)
+		return (-1);
+
 	while (format && format[i] != '\0')
 	{
 		if (format[i] != '%')
@@ -28,8 +31,6 @@ int _printf(const char *format, ...)
 			count += get_specifier_func(format[i + 1])(arglist);
 			i++;
 		}
-		if (format[i] == '%' && !get_specifier_func(format[i + 1]))
-			return (-1);
 
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
