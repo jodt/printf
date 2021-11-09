@@ -25,18 +25,20 @@ int _printf(const char *format, ...)
 			count++;
 			continue;
 		}
-		if (format[i] == '%' && get_specifier_func(format[i + 1]))
+		else if (format[i] == '%' && get_specifier_func(format[i + 1]))
 		{
 			count += get_specifier_func(format[i + 1])(arglist);
 			i++;
 		}
 
-		if (format[i] == '%' && format[i + 1] == '%')
+		else if (format[i] == '%' && format[i + 1] == '%')
 		{
 			write(1, &format[i + 1], 1);
 			count++;
 			i++;
 		}
+		else
+			return (-1);
 
 		i++;
 	}
