@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 			count++;
 			i++;
 		}
-		else
+		else if (format[i] == '%' && format[i + 1])
 			return (-1);
 
 		i++;

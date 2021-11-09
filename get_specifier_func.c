@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
   * get_specifier_func - Select the correct function to perform depending
   * on the specifier on the printf format.
@@ -8,7 +7,6 @@
   * Return: Pointer to the function that correspond to the specifier given as a
   * parameter.
   */
-
 int (*get_specifier_func(char c))(va_list)
 {
 	int i;
