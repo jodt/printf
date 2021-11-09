@@ -28,8 +28,6 @@ int _printf(const char *format, ...)
 			count += get_specifier_func(format[i + 1])(arglist);
 			i++;
 		}
-		if (format[i] == '%' && !get_specifier_func(format[i + 1]))
-			return (0);
 
 		if (format[i] == '%' && format[i + 1] == '%')
 		{
