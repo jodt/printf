@@ -6,11 +6,10 @@
  */
 int _printu(va_list arglist)
 {
-	unsigned int c, count = 0;
+	unsigned int c;
 
 	c = va_arg(arglist, unsigned int);
-	count = write_uninteger(c);
-	return (count);
+	return (write_uninteger(c));
 }
 /**
  * write_uninteger - print an integer with write's function
@@ -20,16 +19,12 @@ int _printu(va_list arglist)
 
 int  write_uninteger(unsigned int number)
 {
-	unsigned int temp;
-	static int characters_printed;
+	unsigned int temp, characters_printed;
 
 	characters_printed = 0;
 	if (number / 10)
-	{
-		write_uninteger(number / 10);
-	}
+		characters_printed = write_uninteger(number / 10);
 	temp = (number % 10) + '0';
-	characters_printed++;
-	write(1, &temp, sizeof(temp));
-	return (characters_printed);
+	return (characters_printed + write(1, &temp, 1));
+
 }
