@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			write(1, &format[i++], 1);
+			_putchar(format[i++]);
 			count++;
 			continue;
 		}
@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == '%')
 			{
-				write(1, &format[i + 1], 1);
+				_putchar(format[i + 1]);
 				count++, i++;
 			}
 			else
