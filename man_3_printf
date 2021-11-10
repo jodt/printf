@@ -1,55 +1,82 @@
-_PRINTF			Linux Programmer's Manual		_PRINTF
+.\" Manpage for _printf
+.\" Contact jodt or phwillot on GitHub to correct errors or typos.
+.TH man 8 "10 November 2021" "1.0" "_printf man page"
 
-NAME
-	_printf
+.SH NAME
 
-SYNOPSIS
-	#include "main.h"
+_printf - Prints a formatted string
 
-	int _printf(const char *format, ...);
+.SH SYNOPSIS
 
-DESCRIPTION
-	The function _printf is our own version of the original printf function. 
-	It has the same behavior and it produces an output according to a format.
-	You pass a string as the first argument, and you can specify an
-	unlimited number of formats specifiers (more exemple below).
-	For each format specifier you specify, you have to put an argument who
-	's corresponding to the type of the format specifier.
-	For example, if you put 3 formats specifiers (one int, one char and one
-	string) you have to put 3 arguments after the formatted string of the
-	corresponding types.
+#include "main.h"
+
+int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+
+The function _printf is our own version of the original printf function.\ 
+It has the same behavior and it produces an output according to a format.
+You pass a string as the first argument, and you can specify an
+unlimited number of formats specifiers (more exemple below).
+
+For each format specifier you specify, you have to put an argument who
+'s corresponding to the type of the format specifier.
+
+For example, if you put 3 formats specifiers (one int, one char and one
+string) you have to put 3 arguments after the formatted string of the
+corresponding types.
+This function is not handling all the functionnality of the original one.
+
+For the moment it's handling: 
+
+%s: string
+
+%c: character
+
+%d: Integer value as signed decimal integer
+
+%i: Integer value with decimal, hexadecimal or octal type.
+
+%u: Unsigned integer
+
+%o: Octal format (base 8)
+
+%X, %x: Hexadecimal format (X for uppercase and x for lowercase characters)
+
+.SH EXAMPLES
+
+_printf("Hello World\n");
+
+Output: Hello World
+
+_printf("Hello %s, you have %d years\n", "Philippe", 27);
+
+Output: Hello Philippe, you have 27 years
 	
-	This function is not handling all the functionnality of the original one.
+
+_printf("Your initials are %c%c\n", 'P', 'W');
+
+Output: Your initials are PW
 	
-	For the moment it's handling: 
-	%s: string
-	%c: character
-	%d: Integer value as signed decimal integer
-	%i: Integer value with decimal, hexadecimal or octal type.
 
-EXAMPLES
-	_printf("Hello World\n");
-	Output: Hello World
+_printf("Octal: %i, Decimal: %i, Hexadecimal: %i\n", 010, 8, 0x08);
 
-	_printf("Hello %s, you have %d years.\n", "Philippe", 27);
-	Output: Hello Philippe, you have 27 years.
-	
-	_printf("Your initials are %c%c.\n", 'P', 'W');
-	Output: Your initials are PW.
-	
-	_printf("Octal: %i, Decimal: %i, Hexadecimal: %i\n", 010, 8, 0x08);
-	Output: Octal: 8, Decimal: 8, Hexadecimal: 8
+Output: Octal: 8, Decimal: 8, Hexadecimal: 8
 
-SEE ALSO
-	printf(3), write(2)
+.SH SEE ALSO
 
-BUGS
-	The negative numbers for %d are not working yet, we're working to fix
-	it.
+printf(3), write(2)
 
-AUTHOR
-	Joel DUMORTIER: https://github.com/jodt/
-	Philippe WILLOT: https://github.com/phwillot/
+.SH BUGS
 
-COPYRIGHT
-	Made for Holberton School. Copyright - 2021
+Current bug with %S, when passing "\0" to the string
+
+.SH AUTHOR
+
+Joel DUMORTIER: https://github.com/jodt/
+
+Philippe WILLOT: https://github.com/phwillot/
+
+.SH COPYRIGHT
+
+Made for Holberton School. Copyright - 2021
