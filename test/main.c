@@ -1,20 +1,13 @@
-#include <limits.h>
 #include <stdio.h>
 #include "main.h"
 
-/**
- * main - Entry point
- *
- * Return: Always 0
- */
 int main(void)
 {
-	int len1;
+	int len;
 
-	len1 = _printf("%b\n", '0');
-
-	_printf("%d\n", len1);
-	printf("%d\n", len1);
+	len = _printf("Complete the sentence: You %s nothing, Jon Snow.\n", (char *) 0);
+	_printf("%d\n", len);
+	printf("%d\n", len);
 
 	return (0);
 }
