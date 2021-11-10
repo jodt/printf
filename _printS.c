@@ -16,7 +16,10 @@ int _printS(va_list arg)
 	char *str = va_arg(arg, char *);
 
 	if (str == NULL)
-		return (0);
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 
 	i = 0;
 	while (str[i])
