@@ -9,12 +9,5 @@ int main(void)
 	_printf("%d\n", len);
 	printf("%d\n", len);
 
-	len = _printf("%!\n");
-	_printf("%d\n", len);
-	printf("%d\n", len);
-
-	len = _printf("%K\n");
-	_printf("%d\n", len);
-	printf("%d\n", len);
 	return (0);
 }

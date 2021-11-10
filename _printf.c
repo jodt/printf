@@ -64,11 +64,11 @@ int checkSpecifier(const char *format, va_list arg)
 
 	while (format && format[i])
 	{
+		if (format[i] == '\0')
+			return (0);
 		if (format[i] == '%')
 		{
-			if (!get_specifier_func(format[i + 1]))
-				return (-1);
-			else if (get_specifier_func(format[i + 1]) && !va_arg(arg, char *))
+			if (get_specifier_func(format[i + 1]) && !va_arg(arg, char *))
 				return (-1);
 		}
 		i++;
