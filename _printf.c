@@ -1,36 +1,22 @@
 #include"main.h"
-
 /**
  * _printf - printf function
  * @format: string
  *
  * Return: number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
-	va_list arglist, copy;
+	va_list arglist;
 	int count = 0, i = 0;
 
 	va_start(arglist, format);
-	va_copy(copy, arglist);
 	if (format == NULL)
 		return (-1);
-	if (format[i] == '%' && format[i + 1] == '\0')
-		return (-1);
 
-	if (format[i] == '%' && !get_specifier_func(format[i + 1]))
-		return (-1);
-
-	while (format && format[i] != '\0')
+	while (format[i] != '\0')
 	{
-		if (format[i] != '%')
-		{
-			write(1, &format[i++], 1);
-			count++;
-			continue;
-		}
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			if (get_specifier_func(format[i + 1]))
 			{
@@ -42,7 +28,22 @@ int _printf(const char *format, ...)
 				write(1, &format[i + 1], 1);
 				count++, i++;
 			}
+			else
+			{
+				write(1, &format[i], 1);
+				count++;
+				write(1, &format[i + 1], 1);
+				count++;
+				i++;
+			}
 		}
+		else if (format[i] != '%')
+		{
+			write(1, &format[i], 1);
+			count++;
+		}
+		else
+			return (-2);
 		i++;
 	}
 	va_end(arglist);
