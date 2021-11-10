@@ -1,6 +1,6 @@
 # _printf
 
-In this project, we uilding our own printf function based on the original one.
+In this project, we built our own printf function based on the original one.
 
 ## NAME
 
