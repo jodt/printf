@@ -43,5 +43,5 @@ int _printS(va_list arg)
 		}
 		i++;
 	}
-	return (i);
+	return (count);
 }
