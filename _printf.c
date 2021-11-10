@@ -31,11 +31,10 @@ int _printf(const char *format, ...)
 			{
 				write(1, &format[i], 1);
 				write(1, &format[i + 1], 1);
-				count += 2;
-				i++;
+				count += 2, i++;
 			}
 		}
-		else if (format[i] != '%')
+		else if ((format[i] == '%' && format[i + 1] == '\0') || format[i] != '%')
 		{
 			write(1, &format[i], 1);
 			count++;
