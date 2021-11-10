@@ -17,7 +17,7 @@ int _printx(va_list arglist)
  *
  * Return: number of character
  */
-int write_x(unsigned int number)
+int write_x(unsigned long int number)
 {
 	int arr [] = {'a', 'b', 'c', 'd', 'e', 'f'};
 	int  temp, index, characters_printed;
@@ -42,4 +42,3 @@ int write_x(unsigned int number)
 	}
 	return (characters_printed);
 }
-
