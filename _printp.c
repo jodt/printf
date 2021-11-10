@@ -12,7 +12,14 @@ int _printp(va_list arglist)
 	int i = 0;
 
 	if (ptr == 0)
-		return (0);
+	{
+		write(1, "(", 1);
+		write(1, "n", 1);
+		write(1, "i", 1);
+		write(1, "l", 1);
+		write(1, ")", 1);
+		return (5);
+	}
 
 	write(1, "0", 1);
 	write(1, "x", 1);
