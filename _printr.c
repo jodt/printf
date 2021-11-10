@@ -9,30 +9,32 @@
 
 int _printr(va_list arg)
 {
-	int count = 0;
 	char *str = va_arg(arg, char *);
 
-	return (write_reverse(str, count));
-}
-
-/**
-  * write_reverse - write string in reverse
-  * @str: string
-  * @i: counter
-  *
-  * Return: Number of characters
-  */
-
-int write_reverse(char *str, int i)
-{
 	if (str == NULL)
 	{
 		write(1, "(null)", 6);
 		return (6);
 	}
 
-	if (!str[i])
-		return (i);
+	return (write_reverse(str));
+}
 
-	return (write_reverse((str + 1), i++));
+/**
+  * write_reverse - write string in reverse
+  * @str: string
+  *
+  * Return: Number of characters
+  */
+
+int write_reverse(char *str)
+{
+	int count = 0;
+
+	if (!*str)
+		return (count);
+
+	count += write_reverse(str + 1);
+
+	return (count += write(1, &*str, 1));
 }
