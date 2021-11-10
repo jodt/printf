@@ -9,7 +9,6 @@ int _printf(const char *format, ...)
 {
 	va_list arglist;
 	int count = 0, i = 0;
-	void *argument;
 
 	va_start(arglist, format);
 	if (format == NULL)
@@ -17,10 +16,8 @@ int _printf(const char *format, ...)
 	if (format[i] == '%' && format[i + 1] == '\0')
 		return (-1);
 
-	argument = va_arg(arglist, char *);
-
 	if (format[i] == '%' && get_specifier_func(format[i + 1]) == NULL)
-		if (argument == NULL)
+		if (va_arg(arglist, char *) == NULL)
 			return (-1);
 
 	while (format && format[i] != '\0')
