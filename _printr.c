@@ -1,7 +1,5 @@
 #include "main.h"
 
-int write_reverse(char *str, int i);
-
 /**
   * _printr - Print reverted string
   * @arg: Current arg.

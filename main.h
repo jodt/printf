@@ -34,4 +34,5 @@ int _printX(va_list);
 int _printp(va_list);
 int _printS(va_list);
 int _printr(va_list);
+int write_reverse(char *, int);
 #endif /* _MAIN_H_ */
