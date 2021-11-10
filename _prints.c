@@ -13,7 +13,15 @@ int _prints(va_list arg)
 	char *str = va_arg(arg, char *);
 
 	if (str == NULL)
-		return (0);
+	{
+		write(1, "(", 1);
+		write(1, "n", 1);
+		write(1, "u", 1);
+		write(1, "l", 1);
+		write(1, "l", 1);
+		write(1, ")", 1);
+		return (6);
+	}
 
 	i = 0;
 	while (str[i])
