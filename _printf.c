@@ -1,5 +1,7 @@
 #include"main.h"
+
 int checkSpecifier(const char *format, va_list);
+
 /**
  * _printf - printf function
  * @format: string
@@ -19,7 +21,7 @@ int _printf(const char *format, ...)
 	if (format[i] == '%' && format[i + 1] == '\0')
 		return (-1);
 	if (checkSpecifier(format, copy) == -1)
-		return (-5);
+		return (-1);
 
 	while (format && format[i] != '\0')
 	{
@@ -41,8 +43,6 @@ int _printf(const char *format, ...)
 				write(1, &format[i + 1], 1);
 				count++, i++;
 			}
-			else
-				return (-2);
 		}
 		i++;
 	}
@@ -60,19 +60,18 @@ int _printf(const char *format, ...)
 
 int checkSpecifier(const char *format, va_list arg)
 {
-	int i = 0, count = 0;
+	int i = 0;
 
 	while (format && format[i])
 	{
 		if (format[i] == '%')
 		{
-			if (get_specifier_func(format[i + 1]) && !va_arg(arg, char*))
-				count++;
+			if (!get_specifier_func(format[i + 1]))
+				return (-1);
+			else if (get_specifier_func(format[i + 1]) && !va_arg(arg, char *))
+				return (-1);
 		}
 		i++;
 	}
-	if (count == 0)
-		return (0);
-	else
-		return (-1);
+	return (0);
 }
