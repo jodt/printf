@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 	if (format[i] == '%' && format[i + 1] == '\0')
 		return (-1);
 
-	argument = va_arg(arglist, void *);
+	argument = va_arg(arglist, char *);
 
 	if (format[i] == '%' && get_specifier_func(format[i + 1]) == NULL)
 		if (argument == NULL)
