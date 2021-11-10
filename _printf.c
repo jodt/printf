@@ -13,18 +13,10 @@ int _printf(const char *format, ...)
 	va_start(arglist, format);
 	if (format == NULL)
 		return (-1);
-	if (format[i] == '%' && format[i + 1] == '\0')
-		return (-1);
 
-	while (format && format[i] != '\0')
+	while (format[i] != '\0')
 	{
-		if (format[i] != '%')
-		{
-			write(1, &format[i++], 1);
-			count++;
-			continue;
-		}
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			if (get_specifier_func(format[i + 1]))
 			{
@@ -37,8 +29,21 @@ int _printf(const char *format, ...)
 				count++, i++;
 			}
 			else
-				return (-2);
+			{
+				write(1, &format[i], 1);
+				count++;
+				write(1, &format[i + 1], 1);
+				count++;
+				i++;
+			}
 		}
+		else if (format[i] != '%')
+		{
+			write(1, &format[i], 1);
+			count++;
+		}
+		else
+			return (-2);
 		i++;
 	}
 	va_end(arglist);
