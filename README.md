@@ -34,6 +34,8 @@ Our function is handling :
 * %u: unsigned integer
 * %o: octal format (base 8)
 * %X, %x: hexadecimal format (X for uppercase and x for lowercase characters)
+* %r: reversed string
+* %R: rot13'ed string
 
 ## EXAMPLES
 
