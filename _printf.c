@@ -1,7 +1,5 @@
 #include"main.h"
 
-int checkSpecifier(const char *format, va_list);
-
 /**
  * _printf - printf function
  * @format: string
@@ -20,7 +18,8 @@ int _printf(const char *format, ...)
 		return (-1);
 	if (format[i] == '%' && format[i + 1] == '\0')
 		return (-1);
-	if (checkSpecifier(format, copy) == -1)
+
+	if (format[i] == '%' && !get_specifier_func(format[i + 1]))
 		return (-1);
 
 	while (format && format[i] != '\0')
@@ -48,30 +47,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(arglist);
 	return (count);
-}
-
-/**
-  * checkSpecifier - Check for NULL specifier
-  * @format: string to check
-  * @arg: current arg
-  *
-  * Return: 0 if no NULL specifier otherwise -1)
-  */
-
-int checkSpecifier(const char *format, va_list arg)
-{
-	int i = 0;
-
-	while (format && format[i])
-	{
-		if (format[i] == '\0')
-			return (0);
-		if (format[i] == '%')
-		{
-			if (get_specifier_func(format[i + 1]) && !va_arg(arg, char *))
-				return (-1);
-		}
-		i++;
-	}
-	return (0);
 }
