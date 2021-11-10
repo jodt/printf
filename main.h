@@ -3,7 +3,7 @@
 #include<unistd.h>
 #include<stdlib.h>
 #include<stdarg.h>
-
+#define BUFSIZE 1024
 /**
  * struct type - structure type
  * @c: character to check
