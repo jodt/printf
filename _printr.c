@@ -1,5 +1,7 @@
 #include "main.h"
 
+int write_reverse(char *str, int i);
+
 /**
   * _printr - Print reverted string
   * @arg: Current arg.
@@ -9,24 +11,30 @@
 
 int _printr(va_list arg)
 {
-	int i = 0, count = 0;
+	int count = 0;
 	char *str = va_arg(arg, char *);
 
+	return (write_reverse(str, count));
+}
+
+/**
+  * write_reverse - write string in reverse
+  * @str: string
+  * @i: counter
+  *
+  * Return: Number of characters
+  */
+
+int write_reverse(char *str, int i)
+{
 	if (str == NULL)
 	{
 		write(1, "(null)", 6);
 		return (6);
 	}
 
-	while (str[i])
-		i++;
+	if (!str[i])
+		return (i);
 
-	while (i != 0)
-	{
-		write(1, &str[i], 1);
-		i--;
-		count++;
-	}
-
-	return (count);
+	return (write_reverse((str + 1), i++));
 }
