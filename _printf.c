@@ -34,13 +34,13 @@ int _printf(const char *format, ...)
 				count += 2, i++;
 			}
 		}
-		else if ((format[i] == '%' && format[i + 1] == '\0') || format[i] != '%')
+		else if (format[i] != '%')
 		{
 			write(1, &format[i], 1);
 			count++;
 		}
 		else
-			return (-2);
+			return (-1);
 		i++;
 	}
 	va_end(arglist);
