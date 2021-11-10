@@ -36,5 +36,5 @@ int write_reverse(char *str)
 
 	count += write_reverse(str + 1);
 
-	return (count += write(1, &*str, 1));
+	return (-1);
 }
