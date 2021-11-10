@@ -1,8 +1,4 @@
 #include"main.h"
-#include <inttypes.h>
-#include <stdio.h>
-
-void printString(char *);
 
 /**
  * _printp - prints int to hexadecimal
@@ -12,10 +8,16 @@ void printString(char *);
  */
 int _printp(va_list arglist)
 {
-	char *ptr = va_arg(arglist, void *);
+	uintptr_t ptr = va_arg(arglist, uintptr_t);
 	int i = 0;
 
-	write_x((uintptr_t) ptr);
+	if (ptr == 0)
+		return (0);
+
+	write(1, "0", 1);
+	write(1, "x", 1);
+	i += 2;
+	i += write_x(ptr);
 
 	return (i);
 }

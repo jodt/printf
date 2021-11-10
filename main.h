@@ -3,6 +3,7 @@
 #include<unistd.h>
 #include<stdlib.h>
 #include<stdarg.h>
+#include<inttypes.h>
 #define BUFSIZE 1024
 /**
  * struct type - structure type
@@ -26,7 +27,7 @@ int _printb(va_list);
 int _printo(va_list);
 int write_octal(unsigned int);
 int (*get_specifier_func(char))(va_list);
-int write_x(unsigned int);
+int write_x(unsigned long int);
 int _printx(va_list);
 int write_X(unsigned int);
 int _printX(va_list);
