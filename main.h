@@ -36,4 +36,5 @@ int _printS(va_list);
 int _printR(va_list);
 int _printr(va_list);
 int write_reverse(char *);
+int checkSpecifier(const char *format, int i, va_list arglist);
 #endif /* _MAIN_H_ */
