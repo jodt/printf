@@ -43,6 +43,11 @@ For the moment it's handling:
 
 %X, %x: Hexadecimal format (X for uppercase and x for lowercase characters)
 
+.SH RETURN VALUE
+
+Upon successful return, this function return the number of characters printed (excluding the null byte used to end output to strings).
+If an output error is encountered, a negative value is returned.
+
 .SH EXAMPLES
 
 _printf("Hello World\\n");
@@ -86,10 +91,6 @@ Output: Uryyb Jbeyq is the display of the sentence Hello World encoded in Rot13
 .SH SEE ALSO
 
 printf(3), write(2)
-
-.SH BUGS
-
-Current bug with %S, when passing "\0" to the string
 
 .SH AUTHOR
 
