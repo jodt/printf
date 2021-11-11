@@ -15,7 +15,7 @@ int _printf(const char *format, ...);
 
 ## DESCRIPTION
 
-The function _printf is our own version of the original printf function.\
+The function **_printf** is our own version of the original **printf** function.\
 It has the same behavior and it produces an output according to a format.\
 You pass a string as the first argument, and you can specify an unlimited number of formats specifiers (more exemple below).
 
@@ -39,7 +39,7 @@ Our function is handling :
 
 ## WHAT WE USED TO CREATE THIS FUNCTION
 
-To create our _\_printf_ function, we mainly used structures, pointers to function, recursive functions, variadic functions, loops and conditions.
+To create our **_printf** function, we mainly used structures, function pointers, recursive functions, variadic functions, loops and conditions.
 
 ### Authorized functions and macros was : 
 
