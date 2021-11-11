@@ -14,12 +14,7 @@ int _prints(va_list arg)
 
 	if (str == NULL)
 	{
-		write(1, "(", 1);
-		write(1, "n", 1);
-		write(1, "u", 1);
-		write(1, "l", 1);
-		write(1, "l", 1);
-		write(1, ")", 1);
+		write(1, "(null)", 6);
 		return (6);
 	}
 
