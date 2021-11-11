@@ -54,37 +54,37 @@ _printf("Hello World\\n");
 
 Output: Hello World
 
-_printf("Hello %s, you have %d years\n", "Philippe", 27);
+_printf("Hello %s, you have %d years\\n", "Philippe", 27);
 
 Output: Hello Philippe, you have 27 years
 	
 
-_printf("Your initials are %c%c\n", 'P', 'W');
+_printf("Your initials are %c%c\\n", 'P', 'W');
 
 Output: Your initials are PW
 	
 
-_printf("Octal: %i, Decimal: %i, Hexadecimal: %i\n", 010, 8, 0x08);
+_printf("Octal: %i, Decimal: %i, Hexadecimal: %i\\n", 010, 8, 0x08);
 
 Output: Octal: 8, Decimal: 8, Hexadecimal: 8
 
 
-_printf("This morning the temperature was %u °C\n", 3);
+_printf("This morning the temperature was %u °C\\n", 3);
 
 Output: This morning the temperature was 3 °C
 
 
-_printf("%x is the conversion hexadecimal de %d" , 1550,1550);
+_printf("%x is the conversion hexadecimal de %d\\n" , 1550,1550);
 
 Output: 60e is the conversion hexadecimal of 1550
 
 
-_printf("%r is the inverted display of %s" , "Hello","Hello");
+_printf("%r is the inverted display of %s\\n" , "Hello","Hello");
 
 Output: olleH is the inverted display of Hello
 
 
-_printf("%R is the display of the sentence %s encoded in Rot13" , "Hello World","Hello World");
+_printf("%R is the display of the sentence %s encoded in Rot13\\n" , "Hello World","Hello World");
 
 Output: Uryyb Jbeyq is the display of the sentence Hello World encoded in Rot13
 
