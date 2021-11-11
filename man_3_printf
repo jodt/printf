@@ -43,9 +43,14 @@ For the moment it's handling:
 
 %X, %x: Hexadecimal format (X for uppercase and x for lowercase characters)
 
+.SH RETURN VALUE
+
+Upon successful return, this function return the number of characters printed (excluding the null byte used to end output to strings).
+If an output error is encountered, a negative value is returned.
+
 .SH EXAMPLES
 
-_printf("Hello World\n");
+_printf("Hello World\\n");
 
 Output: Hello World
 
@@ -63,13 +68,29 @@ _printf("Octal: %i, Decimal: %i, Hexadecimal: %i\n", 010, 8, 0x08);
 
 Output: Octal: 8, Decimal: 8, Hexadecimal: 8
 
+
+_printf("This morning the temperature was %u °C\n", 3);
+
+Output: This morning the temperature was 3 °C
+
+
+_printf("%x is the conversion hexadecimal de %d" , 1550,1550);
+
+Output: 60e is the conversion hexadecimal of 1550
+
+
+_printf("%r is the inverted display of %s" , "Hello","Hello");
+
+Output: olleH is the inverted display of Hello
+
+
+_printf("%R is the display of the sentence %s encoded in Rot13" , "Hello World","Hello World");
+
+Output: Uryyb Jbeyq is the display of the sentence Hello World encoded in Rot13
+
 .SH SEE ALSO
 
 printf(3), write(2)
-
-.SH BUGS
-
-Current bug with %S, when passing "\0" to the string
 
 .SH AUTHOR
 

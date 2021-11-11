@@ -11,28 +11,16 @@ int _printf(const char *format, ...)
 	int count = 0, i = 0;
 
 	va_start(arglist, format);
+
 	if (format == NULL)
 		return (-1);
+
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			if (get_specifier_func(format[i + 1]))
-			{
-				count += get_specifier_func(format[i + 1])(arglist);
-				i++;
-			}
-			else if (format[i + 1] == '%')
-			{
-				write(1, &format[i + 1], 1);
-				count++, i++;
-			}
-			else
-			{
-				write(1, &format[i], 1);
-				write(1, &format[i + 1], 1);
-				count += 2, i++;
-			}
+			count += checkSpecifier(format, i, arglist);
+			i++;
 		}
 		else if (format[i] != '%')
 		{
