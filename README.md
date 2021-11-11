@@ -79,17 +79,17 @@ _printf("This morning the temperature was %u °C\n", 3);
 
 Produces the output : This morning the temperature was 3 °C
 ```sh
- _printf("%x is the conversion hexadecimal de %d" , 1550,1550);
+ _printf("%x is the conversion hexadecimal of %d\n", 1550,1550);
 ```
 
 Produces the output : 60e is the conversion hexadecimal of 1550
 ```sh
- _printf("%r is the inverted display of %s" , "Hello","Hello");
+ _printf("%r is the inverted display of %s\n", "Hello","Hello");
 ```
 
 Produces the output : olleH is the inverted display of Hello
 ```sh
-_printf("%R is the display of the sentence %s encoded in Rot13" , "Hello World","Hello World");
+_printf("%R is the display of the sentence %s encoded in Rot13\n", "Hello World","Hello World");
 ```
 
 Produces the output : Uryyb Jbeyq is the display of the sentence Hello World encoded in Rot13
